@@ -29,6 +29,8 @@ class BookServiceTest @Autowired constructor(
     @AfterEach
     fun clean() {
         bookRepository.deleteAll()
+        userRepository.deleteAll()
+        userLoanHistoryRepository.deleteAll()
     }
 
     @Test
@@ -82,12 +84,12 @@ class BookServiceTest @Autowired constructor(
 
     @Test
     @DisplayName("책 반납이 정상 동작")
-    fun returnBookTest(){
+    fun returnBookTest() {
         // given
         val saveBook = bookRepository.save(Book("이상한 나라의 엘리스"))
         val saveUser = userRepository.save(User("김택윤", null))
         userLoanHistoryRepository.save(UserLoanHistory(saveUser, saveBook.name, false))
-        val request= BookReturnRequest(saveUser.name, saveBook.name)
+        val request = BookReturnRequest(saveUser.name, saveBook.name)
 
         // when
         bookService.returnBook(request)
