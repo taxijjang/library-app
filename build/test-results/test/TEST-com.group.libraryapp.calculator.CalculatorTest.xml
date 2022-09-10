@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.group.libraryapp.calculator.CalculatorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-09-10T14:04:30" hostname="taxijjangui-MacBookPro.local" time="0.002">
+<testsuite name="com.group.libraryapp.calculator.CalculatorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-09-10T14:34:53" hostname="taxijjangui-MacBookPro.local" time="0.002">
   <properties/>
-  <testcase name="divide()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="0으로 나눗셈 테스트()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="divide()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="0으로 나눗셈 테스트()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
   <testcase name="add()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
   <testcase name="minus()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="divideExceptionTest()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
-  <testcase name="multiply()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="divideExceptionTest()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.001"/>
+  <testcase name="multiply()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
