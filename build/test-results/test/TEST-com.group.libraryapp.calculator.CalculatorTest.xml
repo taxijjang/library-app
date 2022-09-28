@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.group.libraryapp.calculator.CalculatorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-09-28T05:46:57" hostname="taxijjangui-MacBookPro.local" time="0.002">
+<testsuite name="com.group.libraryapp.calculator.CalculatorTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-09-28T07:46:00" hostname="taxijjangui-MacBookPro.local" time="0.002">
   <properties/>
   <testcase name="divide()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
   <testcase name="0으로 나눗셈 테스트()" classname="com.group.libraryapp.calculator.CalculatorTest" time="0.0"/>
