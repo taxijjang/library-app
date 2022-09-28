@@ -25,7 +25,7 @@ class UserService(
     fun getUsers(): List<UserResponse> {
         // 방법은 여러가지
         return userRepository.findAll().map { user ->
-            UserResponse(user)
+            UserResponse.of(user)
         }
 //        return userRepository.findAll()
 //            .map(::UserResponse)
