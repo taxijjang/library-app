@@ -2,6 +2,7 @@ package com.group.libraryapp.service.book
 
 import com.group.libraryapp.domain.book.Book
 import com.group.libraryapp.domain.book.BookRepository
+import com.group.libraryapp.domain.book.BookType
 import com.group.libraryapp.domain.user.User
 import com.group.libraryapp.domain.user.UserRepository
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory
@@ -37,21 +38,23 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("책 등록이 정상 동작")
     fun saveBookTest() {
         // given
-        val request = BookRequest("이상한 나라의 엘리스")
+        val request = BookRequest("이상한 나라의 엘리스" , BookType.COMPUTER)
 
         // when
         bookService.saveBook(request)
 
         // then
         val books = bookRepository.findAll()
+        assertThat(books).hasSize(1)
         assertThat(books[0].name).isEqualTo("이상한 나라의 엘리스")
+        assertThat(books[0].type).isEqualTo(BookType.COMPUTER)
     }
 
     @Test
     @DisplayName("책 내용이 정상 동작")
     fun loanBookTest() {
         // given
-        bookRepository.save(Book("이상한 나라의 엘리스"))
+        bookRepository.save(Book.fixture("이상한 나라의 엘리스"))
         val saveUser = userRepository.save(User("김택윤", 30))
         val request = BookLoanRequest("김택윤", "이상한 나라의 엘리스")
 
@@ -70,7 +73,7 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("책이 진작 대출되어 있다면, 신규 대출 실패")
     fun loanBookFailTest() {
         // given
-        val saveBook = bookRepository.save(Book("이상한 나라의 엘리스"))
+        val saveBook = bookRepository.save(Book.fixture("이상한 나라의 엘리스"))
         val saveUser = userRepository.save(User("김택윤", 30))
         userLoanHistoryRepository.save(UserLoanHistory(saveUser, saveBook.name, false))
         val request = BookLoanRequest(saveUser.name, saveBook.name)
@@ -86,7 +89,7 @@ class BookServiceTest @Autowired constructor(
     @DisplayName("책 반납이 정상 동작")
     fun returnBookTest() {
         // given
-        val saveBook = bookRepository.save(Book("이상한 나라의 엘리스"))
+        val saveBook = bookRepository.save(Book.fixture("이상한 나라의 엘리스"))
         val saveUser = userRepository.save(User("김택윤", 30))
         userLoanHistoryRepository.save(UserLoanHistory(saveUser, saveBook.name, false))
         val request = BookReturnRequest(saveUser.name, saveBook.name)
