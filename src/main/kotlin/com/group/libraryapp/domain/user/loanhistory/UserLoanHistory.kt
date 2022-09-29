@@ -9,18 +9,15 @@ import javax.persistence.ManyToOne
 
 @Entity
 class UserLoanHistory(
-    @ManyToOne
-    val user: User,
+    @ManyToOne val user: User,
 
     val bookName: String,
 
-    var isReturn: Boolean = false,
+    var isReturn: UserLoanStatus = UserLoanStatus.LOANED,
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = null
 ) {
     fun doReturn() {
-        this.isReturn = true
+        this.isReturn = UserLoanStatus.RETURNED
     }
 }
