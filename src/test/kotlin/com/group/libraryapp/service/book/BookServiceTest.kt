@@ -67,7 +67,7 @@ class BookServiceTest @Autowired constructor(
         assertThat(results).hasSize(1)
         assertThat(results[0].bookName).isEqualTo("이상한 나라의 엘리스")
         assertThat(results[0].user.id).isEqualTo(saveUser.id)
-        assertThat(results[0].isReturn).isEqualTo(UserLoanStatus.LOANED)
+        assertThat(results[0].status).isEqualTo(UserLoanStatus.LOANED)
     }
 
     @Test
@@ -101,6 +101,6 @@ class BookServiceTest @Autowired constructor(
         // then
         val results = userLoanHistoryRepository.findAll()
         assertThat(results).hasSize(1)
-        assertThat(results[0].isReturn).isEqualTo(UserLoanStatus.RETURNED)
+        assertThat(results[0].status).isEqualTo(UserLoanStatus.RETURNED)
     }
 }

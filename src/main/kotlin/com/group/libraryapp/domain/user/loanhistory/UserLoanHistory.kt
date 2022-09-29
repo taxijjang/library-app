@@ -13,11 +13,11 @@ class UserLoanHistory(
 
     val bookName: String,
 
-    var isReturn: UserLoanStatus = UserLoanStatus.LOANED,
+    var status: UserLoanStatus = UserLoanStatus.LOANED,
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = null
 ) {
     fun doReturn() {
-        this.isReturn = UserLoanStatus.RETURNED
+        this.status = UserLoanStatus.RETURNED
     }
 }
